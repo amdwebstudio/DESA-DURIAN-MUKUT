@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="meta-page-title">Website Resmi Desa Durian Mukut 3D - Portal Pemerintahan & Layanan Mandiri</title>
+    
+    <!-- Open Graph / Social Media Sharing Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://durianmukut.desa.id/">
+    <meta property="og:title" content="Website Resmi Desa Durian Mukut 3D - Portal Pemerintahan & Layanan Mandiri">
+    <meta property="og:description" content="Portal informasi resmi Pemerintah Desa Durian Mukut, Kec. Lembah Masurai, Kab. Merangin, Jambi. Layanan surat digital, potensi wisata & live streaming kegiatan desa.">
+    <meta property="og:image" content="https://placehold.co/1200x630/166534/ffffff?text=Desa+Durian+Mukut+3D">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Website Resmi Desa Durian Mukut 3D">
+    <meta name="twitter:description" content="Portal informasi resmi Pemerintah Desa Durian Mukut, Kec. Lembah Masurai, Kab. Merangin, Jambi.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/166534/ffffff?text=Desa+Durian+Mukut+3D">
+
+    <!-- Tailwind CSS & FontAwesome & Three.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            
+            <!-- Logo & Title -->
+            <div class="flex items-center space-x-3">
+                <img id="navbar-logo" src="https://placehold.co/120x120/166534/ffffff?text=DM" class="w-12 h-12 rounded-xl object-cover shadow border border-emerald-600/30">
+                <div>
+                    <h1 id="brand-title" class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-tight">Desa Durian Mukut</h1>
+                    <p class="text-[11px] font-medium text-emerald-700">Kec. Lembah Masurai, Kab. Merangin, Jambi</p>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden xl:flex items-center space-x-5 text-xs font-semibold text-slate-700">
+                <a href="#beranda" class="hover:text-emerald-700 transition">Beranda</a>
+                <a href="#profil" class="hover:text-emerald-700 transition">Profil</a>
+                <a href="#potensi" class="hover:text-emerald-700 transition">Potensi & Wisata</a>
+                <a href="#peta3d" class="hover:text-emerald-700 transition">Peta 3D</a>
+                <a href="#opensid" class="hover:text-emerald-700 transition">OpenSID</a>
+                <a href="#apbdes" class="hover:text-emerald-700 transition">APBDes</a>
+                <a href="#pengumuman" class="hover:text-emerald-700 transition">Pengumuman</a>
+                <a href="#livefb" class="hover:text-emerald-700 transition">Live FB</a>
+                <a href="#galeri" class="hover:text-emerald-700 transition">Galeri</a>
+                <a href="#layanan" class="hover:text-emerald-700 transition">Layanan</a>
+            </nav>
+
+            <!-- Auth & Action Buttons -->
+            <div class="flex items-center space-x-3">
+                <button id="btn-superadmin-nav" onclick="openSuperadminModal()" class="hidden bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs px-3.5 py-2 rounded-xl shadow transition flex items-center space-x-2">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Panel Superadmin</span>
+                </button>
+
+                <button onclick="openLoginModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow transition flex items-center space-x-2">
+                    <i class="fa-solid fa-user-lock"></i>
+                    <span id="nav-auth-label">Login Portal</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero Section -->
+    <section id="beranda" class="relative bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+                <span class="inline-flex items-center space-x-2 bg-emerald-500/20 text-emerald-300 text-xs font-bold px-3.5 py-1.5 rounded-full border border-emerald-500/30">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Portal Resmi Pemerintah Desa Berbasis Digital & 3D</span>
+                </span>
+                <h2 id="hero-heading" class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+                    Selamat Datang di Website Resmi Desa Durian Mukut
+                </h2>
+                <p id="hero-desc" class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    Pusat informasi layanan publik, transparansi keuangan desa, kependudukan OpenSID terpadu, potensi wisata alam, dan simulasi peta wilayah 3D interaktif.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="#peta3d" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                        <i class="fa-solid fa-cube"></i>
+                        <span>Jelajahi Peta 3D Desa</span>
+                    </a>
+                    <a href="#livefb" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Live Streaming Kegiatan</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Leadership Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center space-y-3">
+                    <div class="w-24 h-24 mx-auto rounded-xl overflow-hidden shadow-md border-2 border-emerald-500/50">
+                        <img id="preview-kades-img" src="https://placehold.co/300x300/166534/ffffff?text=Kades" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 id="preview-kades-name" class="font-bold text-sm text-white">Boy Krisyanto</h4>
+                        <p class="text-[11px] text-emerald-400 font-medium">Kepala Desa Durian Mukut</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center space-y-3">
+                    <div class="w-24 h-24 mx-auto rounded-xl overflow-hidden shadow-md border-2 border-emerald-500/50">
+                        <img id="preview-sekdes-img" src="https://placehold.co/300x300/065f46/ffffff?text=Sekdes" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 id="preview-sekdes-name" class="font-bold text-sm text-white">Ahmad Fauzi, S.Sos</h4>
+                        <p class="text-[11px] text-emerald-400 font-medium">Sekretaris Desa</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROFIL DESA & SEJARAH -->
+    <section id="profil" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Profil Pemerintahan</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Profil & Sejarah Singkat Desa</h3>
+                <p class="text-xs sm:text-sm text-slate-600">Mengenal lebih dekat asal-usul, visi misi, serta letak geografis Desa Durian Mukut.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200">
+                    <h4 class="text-lg font-extrabold text-slate-900 flex items-center"><i class="fa-solid fa-book-open text-emerald-600 mr-2"></i> Sejarah Desa Durian Mukut</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Desa Durian Mukut merupakan salah satu desa yang terletak di wilayah Kecamatan Lembah Masurai, Kabupaten Merangin, Provinsi Jambi. Konon dinamakan Durian Mukut karena dulunya wilayah ini ditumbuhi banyak pohon durian liar berkualitas tinggi yang menjadi ciri khas leluhur pendiri dusun.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Seiring perkembangan zaman, masyarakat desa mayoritas bermata pencaharian sebagai petani kopi arabika/robusta serta perkebunan produktif, hidup rukun dalam adat istiadat leluhur yang kuat.
+                    </p>
+                </div>
+                <div class="space-y-4 bg-emerald-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl">
+                    <h4 class="text-lg font-extrabold text-emerald-200 flex items-center"><i class="fa-solid fa-bullseye mr-2"></i> Visi & Misi Desa</h4>
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="bg-emerald-800/60 p-4 rounded-2xl border border-emerald-700">
+                            <b class="text-emerald-300 block mb-1">Visi Utama:</b>
+                            "Terwujudnya Desa Durian Mukut yang Religius, Maju, Sejahtera, Mandiri, dan Berbasis Teknologi Digital."
+                        </div>
+                        <div class="bg-emerald-800/60 p-4 rounded-2xl border border-emerald-700">
+                            <b class="text-emerald-300 block mb-1">Misi Utama:</b>
+                            <ul class="list-disc pl-4 space-y-1 text-slate-200">
+                                <li>Meningkatkan kualitas pelayanan publik berbasis digital yang transparan.</li>
+                                <li>Mengembangkan potensi pertanian kopi dan pariwisata alam lokal.</li>
+                                <li>Memperkuat infrastruktur desa yang merata di setiap dusun.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POTENSI DESA & POTENSI WISATA -->
+    <section id="potensi" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Kekayaan Lokal</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Potensi Desa & Destinasi Wisata</h3>
+                <p class="text-xs sm:text-sm text-slate-600">Jelajahi keunggulan komoditas unggulan pertanian dan keindahan alam wisata tersembunyi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Potensi 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 flex flex-col">
+                    <img src="https://placehold.co/600x400/166534/ffffff?text=Kopi+Robusta+Masurai" class="w-full h-48 object-cover">
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="bg-emerald-50 text-emerald-700 font-bold text-[10px] px-2.5 py-1 rounded-full">Pertanian Unggulan</span>
+                            <h4 class="font-extrabold text-slate-900 text-base">Kopi Arabika & Robusta Masurai</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Hasil perkebunan kopi kualitas ekspor yang dikelola langsung oleh petani lokal Desa Durian Mukut dengan cita rasa khas pegunungan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wisata 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 flex flex-col">
+                    <img src="https://placehold.co/600x400/0369a1/ffffff?text=Air+Terjun+Durian+Mukut" class="w-full h-48 object-cover">
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="bg-sky-50 text-sky-700 font-bold text-[10px] px-2.5 py-1 rounded-full">Destinasi Wisata Alam</span>
+                            <h4 class="font-extrabold text-slate-900 text-base">Air Terjun Manna Indah</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Wisata air terjun alami dengan air yang jernih dan sejuk, dikelilingi hutan hujan tropis kaki Bukit Barisan yang asri.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wisata 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 flex flex-col">
+                    <img src="https://placehold.co/600x400/b45309/ffffff?text=Puncak+Bukit+Barisan" class="w-full h-48 object-cover">
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div class="space-y-2">
+                            <span class="bg-amber-50 text-amber-700 font-bold text-[10px] px-2.5 py-1 rounded-full">Ekowisata & Camping</span>
+                            <h4 class="font-extrabold text-slate-900 text-base">Puncak Panorama Bukit Barisan</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Spot terbaik menikmati matahari terbit (sunrise) dan hamparan awan lembah dari ketinggian Desa Durian Mukut.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Interactive Village Map Section -->
+    <section id="peta3d" class="py-16 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/30">Simulasi 3D Realistis</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Peta Wilayah & Topografi 3D Desa Durian Mukut</h3>
+                <p class="text-xs sm:text-sm text-slate-400">Dilengkapi relief pegunungan Bukit Barisan, aliran sungai jernih, kebun kopi, dan pemukiman warga.</p>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="relative w-full h-[450px] sm:h-[550px] bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+                <div id="canvas-3d-container" class="w-full h-full cursor-grab active:cursor-grabbing"></div>
+                <div class="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur p-3 rounded-2xl border border-slate-800 text-[11px] text-slate-300 space-y-1 shadow-lg pointer-events-none">
+                    <div class="font-bold text-emerald-400 flex items-center space-x-1.5"><i class="fa-solid fa-circle-info"></i> <span>Panduan Navigasi 3D</span></div>
+                    <div>• Klik & Geser (Drag): Memutar Sudut Kamera</div>
+                    <div>• Scroll Mouse: Zoom Masuk / Keluar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OpenSID & Demographics Section -->
+    <section id="opensid" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">OpenSID Terpadu</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Statistik Kependudukan & Demografi</h3>
+                <p class="text-xs sm:text-sm text-slate-600">Data kependudukan real-time Desa Durian Mukut berdasarkan sistem OpenSID.</p>
+            </div>
+
+            <!-- Stat Cards Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-emerald-50 p-6 rounded-3xl border border-emerald-100 text-center space-y-2 shadow-sm">
+                    <div class="w-10 h-10 mx-auto bg-emerald-600 text-white rounded-2xl flex items-center justify-center font-bold text-base shadow"><i class="fa-solid fa-users"></i></div>
+                    <h4 class="text-2xl font-black text-emerald-900">2,840</h4>
+                    <p class="text-xs font-semibold text-emerald-700">Total Penduduk</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-3xl border border-blue-100 text-center space-y-2 shadow-sm">
+                    <div class="w-10 h-10 mx-auto bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-base shadow"><i class="fa-solid fa-house-chimney"></i></div>
+                    <h4 class="text-2xl font-black text-blue-900">820</h4>
+                    <p class="text-xs font-semibold text-blue-700">Kepala Keluarga (KK)</p>
+                </div>
+                <div class="bg-amber-50 p-6 rounded-3xl border border-amber-100 text-center space-y-2 shadow-sm">
+                    <div class="w-10 h-10 mx-auto bg-amber-600 text-white rounded-2xl flex items-center justify-center font-bold text-base shadow"><i class="fa-solid fa-mars"></i></div>
+                    <h4 class="text-2xl font-black text-amber-900">1,450</h4>
+                    <p class="text-xs font-semibold text-amber-700">Penduduk Laki-Laki</p>
+                </div>
+                <div class="bg-rose-50 p-6 rounded-3xl border border-rose-100 text-center space-y-2 shadow-sm">
+                    <div class="w-10 h-10 mx-auto bg-rose-600 text-white rounded-2xl flex items-center justify-center font-bold text-base shadow"><i class="fa-solid fa-venus"></i></div>
+                    <h4 class="text-2xl font-black text-rose-900">1,390</h4>
+                    <p class="text-xs font-semibold text-rose-700">Penduduk Perempuan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APBDes Transparency Section -->
+    <section id="apbdes" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Transparansi Keuangan</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">APBDes Desa Durian Mukut 2026</h3>
+                <p class="text-xs sm:text-sm text-slate-600">Laporan realisasi anggaran pendapatan dan belanja desa terbuka untuk warga.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <h4 class="font-extrabold text-slate-900 text-base flex items-center"><i class="fa-solid fa-wallet text-emerald-600 mr-2"></i> Pendapatan Desa</h4>
+                    <div class="space-y-3 text-xs">
+                        <div class="flex justify-between p-3 bg-slate-50 rounded-xl"><span>Dana Desa (DD)</span><b class="text-slate-900">Rp 1.150.000.000</b></div>
+                        <div class="flex justify-between p-3 bg-slate-50 rounded-xl"><span>Alokasi Dana Desa (ADD)</span><b class="text-slate-900">Rp 620.000.000</b></div>
+                        <div class="flex justify-between p-3 bg-slate-50 rounded-xl"><span>Bagi Hasil Pajak & Retribusi</span><b class="text-slate-900">Rp 45.000.000</b></div>
+                        <div class="flex justify-between font-bold text-sm pt-2 border-t border-slate-200"><span>Total Pendapatan</span><span class="text-emerald-700">Rp 1.815.000.000</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200 space-y-4">
+                    <h4 class="font-extrabold text-slate-900 text-base flex items-center"><i class="fa-solid fa-chart-pie text-rose-600 mr-2"></i> Bidang Belanja Desa</h4>
+                    <div class="space-y-3 text-xs">
+                        <div class="flex justify-between p-3 bg-slate-50 rounded-xl"><span>Penyelenggaraan Pemerintahan Desa</span><b class="text-slate-900">Rp 710.000.000</b></div>
+                        <div class="flex justify-between p-3 bg-slate-50 rounded-xl"><span>Pelaksanaan Pembangunan Desa</span><b class="text-slate-900">Rp 680.000.000</b></div>
+                        <div class="flex justify-between p-3 bg-slate-50 rounded-xl"><span>Pembinaan & Pemberdayaan Masyarakat</span><b class="text-slate-900">Rp 425.000.000</b></div>
+                        <div class="flex justify-between font-bold text-sm pt-2 border-t border-slate-200"><span>Total Belanja</span><span class="text-rose-700">Rp 1.815.000.000</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD PENGUMUMAN & BERITA DESA -->
+    <section id="pengumuman" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Informasi Terkini</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-2">Dashboard Pengumuman & Berita Desa</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Berita resmi dan agenda penting kegiatan Pemerintahan Desa Durian Mukut.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Pengumuman 1 -->
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">25 September 2026</span>
+                        <h4 class="font-extrabold text-slate-900 text-base">Jadwal Penyaluran BLT-DD Tahap III</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Pemerintah Desa Durian Mukut mengundang seluruh Keluarga Penerima Manfaat (KPM) untuk hadir di Kantor Desa pada pukul 09.00 WIB.</p>
+                    </div>
+                    <span class="text-xs font-bold text-emerald-600 flex items-center pt-2"><i class="fa-solid fa-circle-info mr-1.5"></i> Resmi Pemdes</span>
+                </div>
+
+                <!-- Pengumuman 2 -->
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-full">22 September 2026</span>
+                        <h4 class="font-extrabold text-slate-900 text-base">Gotong Royong Perbaikan Irigasi Dusun Timur</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Dihimbau kepada seluruh warga masyarakat Dusun Timur untuk bersama-sama melaksanakan kerja bakti pembersihan saluran air sawah.</p>
+                    </div>
+                    <span class="text-xs font-bold text-amber-600 flex items-center pt-2"><i class="fa-solid fa-users mr-1.5"></i> Kegiatan Warga</span>
+                </div>
+
+                <!-- Pengumuman 3 -->
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="text-[10px] font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-full">18 September 2026</span>
+                        <h4 class="font-extrabold text-slate-900 text-base">Pelayanan Pembuatan Administrasi Kependudukan</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">Penyuluhan dan pelayanan jemput bola pembuatan akta kelahiran serta kartu keluarga gratis bekerja sama dengan Dukcapil Merangin.</p>
+                    </div>
+                    <span class="text-xs font-bold text-blue-600 flex items-center pt-2"><i class="fa-solid fa-id-card mr-1.5"></i> Layanan Publik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLOT VIDEO FACEBOOK LIVE STREAMING -->
+    <section id="livefb" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-500/30">Siaran Langsung / Live Event</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Slot Video Facebook Live Acara & Kegiatan Desa</h3>
+                <p class="text-xs sm:text-sm text-slate-400">Saksikan siaran langsung kegiatan musyawarah desa, pelantikan, atau acara kebudayaan melalui akun Facebook resmi pemdes.</p>
+            </div>
+
+            <!-- Facebook Live Embed Container -->
+            <div class="max-w-4xl mx-auto bg-slate-950 p-4 sm:p-6 rounded-3xl border border-slate-800 shadow-2xl space-y-4 text-center">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-slate-300">
+                        <i class="fa-brands fa-facebook text-blue-500 text-base"></i>
+                        <span>Pemdes Durian Mukut Live Channel</span>
+                    </div>
+                    <span class="bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider animate-pulse">● LIVE / Rekaman</span>
+                </div>
+                
+                <!-- Responsive Video Embed Wrapper -->
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center border border-slate-800">
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fzuck%2Fvideos%2F10102596025988791%2F&show_text=false&width=476&t=0" width="100%" height="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+                <p class="text-[11px] text-slate-400">Jika siaran langsung belum dimulai, Anda dapat memutar arsip video kegiatan sebelumnya atau kunjungi halaman Facebook resmi kami.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI FOTO & GALERI 5 VIDEO KEGIATAN DESA -->
+    <section id="galeri" class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- Galeri Foto -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Dokumentasi Visual</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Galeri Foto Kegiatan Desa</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Potret kebersamaan warga dan pembangunan infrastruktur desa.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-44">
+                        <img src="https://placehold.co/400x300/166534/ffffff?text=Musrenbangdes" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-44">
+                        <img src="https://placehold.co/400x300/0369a1/ffffff?text=Posyandu+Anak" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-44">
+                        <img src="https://placehold.co/400x300/b45309/ffffff?text=Panen+Kopi" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-44">
+                        <img src="https://placehold.co/400x300/475569/ffffff?text=Gotong+Royong" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeri 5 Video Kegiatan Desa -->
+            <div class="space-y-6 pt-8 border-t border-slate-100">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Video Kegiatan</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Galeri 5 Video Kegiatan Desa</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Kumpulan rekaman video dokumenter acara resmi dan pembangunan di Desa Durian Mukut.</p>
+                </div>
+
+                <!-- 5 Video Grid Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- Video 1 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm space-y-2 p-3">
+                        <div class="w-full h-32 bg-slate-900 rounded-xl overflow-hidden relative flex items-center justify-center text-white">
+                            <i class="fa-solid fa-play text-2xl text-emerald-400"></i>
+                            <span class="absolute bottom-2 right-2 text-[9px] bg-black/70 px-1.5 py-0.5 rounded">04:15</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-xs line-clamp-1">1. Profil Desa Durian Mukut 3D</h5>
+                        <p class="text-[10px] text-slate-500">Dokumenter Resmi</p>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm space-y-2 p-3">
+                        <div class="w-full h-32 bg-slate-900 rounded-xl overflow-hidden relative flex items-center justify-center text-white">
+                            <i class="fa-solid fa-play text-2xl text-emerald-400"></i>
+                            <span class="absolute bottom-2 right-2 text-[9px] bg-black/70 px-1.5 py-0.5 rounded">12:30</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-xs line-clamp-1">2. Musyawarah Rencana Pembangunan</h5>
+                        <p class="text-[10px] text-slate-500">Sidang Desa 2026</p>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm space-y-2 p-3">
+                        <div class="w-full h-32 bg-slate-900 rounded-xl overflow-hidden relative flex items-center justify-center text-white">
+                            <i class="fa-solid fa-play text-2xl text-emerald-400"></i>
+                            <span class="absolute bottom-2 right-2 text-[9px] bg-black/70 px-1.5 py-0.5 rounded">08:45</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-xs line-clamp-1">3. Panen Raya Kopi Arabika</h5>
+                        <p class="text-[10px] text-slate-500">Sektor Pertanian</p>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm space-y-2 p-3">
+                        <div class="w-full h-32 bg-slate-900 rounded-xl overflow-hidden relative flex items-center justify-center text-white">
+                            <i class="fa-solid fa-play text-2xl text-emerald-400"></i>
+                            <span class="absolute bottom-2 right-2 text-[9px] bg-black/70 px-1.5 py-0.5 rounded">06:20</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-xs line-clamp-1">4. Festival Seni Budaya Lokal</h5>
+                        <p class="text-[10px] text-slate-500">Kesenian Masyarakat</p>
+                    </div>
+
+                    <!-- Video 5 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm space-y-2 p-3">
+                        <div class="w-full h-32 bg-slate-900 rounded-xl overflow-hidden relative flex items-center justify-center text-white">
+                            <i class="fa-solid fa-play text-2xl text-emerald-400"></i>
+                            <span class="absolute bottom-2 right-2 text-[9px] bg-black/70 px-1.5 py-0.5 rounded">10:10</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-xs line-clamp-1">5. Gotong Royong Infrastruktur</h5>
+                        <p class="text-[10px] text-slate-500">Bakti Sosial Warga</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KONTAK DESA SECTION -->
+    <section id="kontak" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="space-y-6">
+                <div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Hubungi Kami</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Kontak & Lokasi Kantor Desa</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Silakan kunjungi kantor desa kami pada jam operasional kerja atau hubungi melalui kontak resmi berikut.</p>
+                </div>
+                <div class="space-y-4 text-xs">
+                    <div class="flex items-start space-x-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-9 h-9 bg-emerald-600 text-white rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <b class="text-slate-900 block mb-0.5">Alamat Kantor Desa</b>
+                            <span class="text-slate-600">Jl. Utama Desa Durian Mukut, Kec. Lembah Masurai, Kab. Merangin, Jambi 37382</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-9 h-9 bg-emerald-600 text-white rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <b class="text-slate-900 block mb-0.5">Jam Pelayanan Kantor</b>
+                            <span class="text-slate-600">Senin - Kamis (08.00 - 15.00 WIB) | Jumat (08.00 - 11.30 WIB)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Layanan Surat & Laporan -->
+            <div id="layanan" class="space-y-6">
+                <div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Layanan Mandiri</span>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-2">Permohonan Surat Keterangan Digital</h3>
+                    <p class="text-xs text-slate-600">Ajukan surat keterangan secara online tanpa harus antre.</p>
+                </div>
+                <form onsubmit="handleSuratSubmit(event)" class="space-y-4 text-xs bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Nama Lengkap Warga</label>
+                        <input type="text" id="surat-nama" required placeholder="Masukkan nama sesuai KTP" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">NIK (16 Digit)</label>
+                        <input type="text" id="surat-nik" required placeholder="Nomor Induk Kependudukan" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Jenis Layanan Surat</label>
+                        <select id="surat-jenis" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-slate-50">
+                            <option>Surat Keterangan Domisili</option>
+                            <option>Surat Keterangan Tidak Mampu (SKTM)</option>
+                            <option>Surat Keterangan Usaha (SKU)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition">Kirim Permohonan Surat</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-2 text-white font-bold text-sm">
+                    <i class="fa-solid fa-landmark text-emerald-500"></i>
+                    <span>Pemerintah Desa Durian Mukut</span>
+                </div>
+                <p class="text-[11px] leading-relaxed">Kecamatan Lembah Masurai, Kabupaten Merangin, Provinsi Jambi. Kode Pos 37382.</p>
+            </div>
+            <div class="space-y-2">
+                <h5 class="font-bold text-white text-xs uppercase tracking-wider">Tautan Cepat</h5>
+                <ul class="space-y-1.5">
+                    <li><a href="#profil" class="hover:text-white transition">Profil & Sejarah</a></li>
+                    <li><a href="#potensi" class="hover:text-white transition">Potensi & Wisata</a></li>
+                    <li><a href="#peta3d" class="hover:text-white transition">Peta 3D Desa</a></li>
+                    <li><a href="#livefb" class="hover:text-white transition">Live Streaming FB</a></li>
+                </ul>
+            </div>
+            <div class="space-y-2">
+                <h5 class="font-bold text-white text-xs uppercase tracking-wider">Jam Pelayanan Kantor</h5>
+                <p>Senin - Kamis: 08.00 - 15.00 WIB</p>
+                <p>Jumat: 08.00 - 11.30 WIB</p>
+                <p class="pt-2 text-emerald-400 font-medium">WhatsApp Hotline: +62 822-8877-6655</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-900 text-center text-slate-500 text-[11px]">
+            <p id="footer-watermark">Developed by AMD Web Studio by Agung Maydaryus • Siap Deploy GitHub, Cloudflare & SGC</p>
+        </div>
+    </footer>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-9 h-9 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold shadow"><i class="fa-solid fa-user-lock"></i></div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-sm">Login Portal Desa</h3>
+                        <p class="text-[10px] text-slate-500">Superadmin & Operator Desa</p>
+                    </div>
+                </div>
+                <button onclick="closeLoginModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <form onsubmit="handleLogin(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Username / ID Akun</label>
+                    <input type="text" id="login-user" required placeholder="Masukkan Username" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-white">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Password</label>
+                    <div class="relative">
+                        <input type="password" id="login-pass" required placeholder="Masukkan Password" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-white pr-10">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-3 text-slate-400 hover:text-slate-600"><i id="eye-icon" class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center text-[11px]">
+                    <a href="#" onclick="openForgotPasswordModal()" class="text-emerald-600 hover:underline font-semibold">Lupa Password?</a>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition">Masuk Sistem</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUPERADMIN PANEL MODAL -->
+    <div id="superadmin-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-10 h-10 bg-amber-500 text-slate-950 rounded-xl flex items-center justify-center font-bold shadow"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-base">Panel Master Control Superadmin</h3>
+                        <p class="text-xs text-slate-500">Agung Maydaryus • Kelola Identitas, Foto, & Keamanan</p>
+                    </div>
+                </div>
+                <button onclick="closeSuperadminModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="space-y-6 text-xs">
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center"><i class="fa-solid fa-pen-to-square text-emerald-600 mr-2"></i> Identitas Website & Judul Utama</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Judul Utama Website</label>
+                            <input type="text" id="setting-title" value="Desa Durian Mukut" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 bg-white">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Nomor Telepon / WA Hotline</label>
+                            <input type="text" id="setting-phone" value="+62 822-8877-6655" class="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 bg-white">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center"><i class="fa-solid fa-image text-emerald-600 mr-2"></i> Upload Foto Perangkat Desa & Logo (File Lokal)</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Logo Website</label>
+                            <input type="file" id="upload-logo-file" accept="image/*" onchange="handleImageUpload(event, 'logo')" class="w-full text-[11px] text-slate-500 file:mr-2 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Foto Kepala Desa</label>
+                            <input type="file" id="upload-kades-file" accept="image/*" onchange="handleImageUpload(event, 'kades')" class="w-full text-[11px] text-slate-500 file:mr-2 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Foto Sekretaris Desa</label>
+                            <input type="file" id="upload-sekdes-file" accept="image/*" onchange="handleImageUpload(event, 'sekdes')" class="w-full text-[11px] text-slate-500 file:mr-2 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex justify-end space-x-3 border-t border-slate-100">
+                    <button onclick="logoutAdmin()" class="bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold px-4 py-2.5 rounded-xl transition">Logout</button>
+                    <button onclick="saveSuperadminSettings()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl shadow transition">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORGOT PASSWORD MODAL -->
+    <div id="forgot-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                <h3 class="font-extrabold text-slate-900 text-sm">Pemulihan Lupa Password</h3>
+                <button onclick="closeForgotPasswordModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="space-y-4 text-xs">
+                <p class="text-slate-600">Masukkan nomor WhatsApp atau email terdaftar untuk menerima kode verifikasi pemulihan password akun.</p>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">No. WhatsApp / Email</label>
+                    <input type="text" id="forgot-input" placeholder="Contoh: 082288776655" class="w-full border border-slate-300 rounded-xl px-4 py-2.5 bg-white">
+                </div>
+                <button onclick="handleForgotSubmit()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition">Kirim Kode Verifikasi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 text-xs flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toast-text">Berhasil!</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let isSuperadmin = false;
+        let currentUserRole = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSavedSettings();
+            initThreeJSVillage();
+
+            const savedRole = localStorage.getItem('desa_current_role');
+            if (savedRole === 'superadmin') {
+                isSuperadmin = true;
+                currentUserRole = 'superadmin';
+                document.getElementById('btn-superadmin-nav').classList.remove('hidden');
+                document.getElementById('nav-auth-label').textContent = 'Agung Maydaryus';
+            } else if (savedRole === 'operator') {
+                currentUserRole = 'operator';
+                document.getElementById('nav-auth-label').textContent = 'Admin Desa';
+            }
+        });
+
+        // 3D Three.js Village Topography Map Simulation
+        function initThreeJSVillage() {
+            const container = document.getElementById('canvas-3d-container');
+            if (!container) return;
+
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x020617);
+
+            const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(0, 35, 50);
+            camera.lookAt(0, 0, 0);
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+
+            const sunLight = new THREE.DirectionalLight(0xffffff, 1.2);
+            sunLight.position.set(20, 40, 20);
+            scene.add(sunLight);
+
+            const terrainGeo = new THREE.PlaneGeometry(60, 60, 32, 32);
+            const pos = terrainGeo.attributes.position;
+            for (let i = 0; i < pos.count; i++) {
+                const vx = pos.getX(i);
+                const vy = pos.getY(i);
+                const dist = Math.sqrt(vx * vx + vy * vy);
+                if (dist > 15) {
+                    pos.setZ(i, Math.sin(vx * 0.2) * Math.cos(vy * 0.2) * 8 + 5);
+                } else {
+                    pos.setZ(i, Math.sin(vx * 0.1) * 1.5);
+                }
+            }
+            terrainGeo.computeVertexNormals();
+            const terrainMat = new THREE.MeshStandardMaterial({ color: 0x166534, roughness: 0.8, flatShading: true });
+            const terrain = new THREE.Mesh(terrainGeo, terrainMat);
+            terrain.rotation.x = -Math.PI / 2;
+            scene.add(terrain);
+
+            const riverGeo = new THREE.PlaneGeometry(60, 4);
+            const riverMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.2 });
+            const river = new THREE.Mesh(riverGeo, riverMat);
+            river.rotation.x = -Math.PI / 2;
+            river.position.set(0, 0.2, 0);
+            scene.add(river);
+
+            const houseGeo = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+            const roofGeo = new THREE.ConeGeometry(1, 1, 4);
+            const houseMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc });
+            const roofMat = new THREE.MeshStandardMaterial({ color: 0x991b1b });
+
+            for (let i = 0; i < 15; i++) {
+                const group = new THREE.Group();
+                const house = new THREE.Mesh(houseGeo, houseMat);
+                house.position.y = 0.6;
+                const roof = new THREE.Mesh(roofGeo, roofMat);
+                roof.position.y = 1.5;
+                group.add(house);
+                group.add(roof);
+
+                const angle = (i / 15) * Math.PI * 2;
+                const radius = 10 + Math.random() * 8;
+                group.position.set(Math.cos(angle) * radius, 1, Math.sin(angle) * radius);
+                scene.add(group);
+            }
+
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+            let theta = 0;
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; previousMousePosition = { x: e.clientX, y: e.clientY }; });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const deltaX = e.clientX - previousMousePosition.x;
+                theta -= deltaX * 0.008;
+                camera.position.x = Math.sin(theta) * 50;
+                camera.position.z = Math.cos(theta) * 50;
+                camera.lookAt(0, 0, 0);
+                previousMousePosition = { x: e.clientX, y: e.clientY };
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                if (!container) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+        }
+
+        function openLoginModal() { document.getElementById('login-modal').classList.remove('hidden'); }
+        function closeLoginModal() { document.getElementById('login-modal').classList.add('hidden'); }
+        function openSuperadminModal() {
+            if (!isSuperadmin) {
+                showToast('Akses ditolak! Hanya Superadmin (Agung Maydaryus) yang dapat membuka panel.');
+                return;
+            }
+            document.getElementById('superadmin-modal').classList.remove('hidden');
+        }
+        function closeSuperadminModal() { document.getElementById('superadmin-modal').classList.add('hidden'); }
+        function openForgotPasswordModal() { closeLoginModal(); document.getElementById('forgot-modal').classList.remove('hidden'); }
+        function closeForgotPasswordModal() { document.getElementById('forgot-modal').classList.add('hidden'); }
+
+        let passVisible = false;
+        function togglePasswordVisibility() {
+            passVisible = !passVisible;
+            const passInput = document.getElementById('login-pass');
+            const eyeIcon = document.getElementById('eye-icon');
+            if (passVisible) {
+                passInput.type = 'text';
+                eyeIcon.className = 'fa-solid fa-eye-slash';
+            } else {
+                passInput.type = 'password';
+                eyeIcon.className = 'fa-solid fa-eye';
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('login-user').value.trim();
+            const p = document.getElementById('login-pass').value.trim();
+
+            if (u === 'Agung Maydaryus' && p === 'admin123') {
+                isSuperadmin = true;
+                currentUserRole = 'superadmin';
+                localStorage.setItem('desa_current_role', 'superadmin');
+                closeLoginModal();
+                document.getElementById('btn-superadmin-nav').classList.remove('hidden');
+                document.getElementById('nav-auth-label').textContent = 'Agung Maydaryus';
+                showToast('Login Berhasil sebagai Superadmin (Agung Maydaryus)!');
+            } else if (u === 'admin desa' && p === 'operator123') {
+                isSuperadmin = false;
+                currentUserRole = 'operator';
+                localStorage.setItem('desa_current_role', 'operator');
+                closeLoginModal();
+                document.getElementById('btn-superadmin-nav').classList.add('hidden');
+                document.getElementById('nav-auth-label').textContent = 'Admin Desa';
+                showToast('Login Berhasil sebagai Admin Desa (Operator)!');
+            } else {
+                showToast('Username atau Password salah!');
+            }
+        }
+
+        function logoutAdmin() {
+            isSuperadmin = false;
+            currentUserRole = null;
+            localStorage.removeItem('desa_current_role');
+            document.getElementById('btn-superadmin-nav').classList.add('hidden');
+            document.getElementById('nav-auth-label').textContent = 'Login Portal';
+            closeSuperadminModal();
+            showToast('Berhasil Logout!');
+        }
+
+        function handleForgotSubmit() {
+            const val = document.getElementById('forgot-input').value.trim();
+            if (!val) { showToast('Masukkan nomor WhatsApp atau email Anda.'); return; }
+            closeForgotPasswordModal();
+            showToast('Kode verifikasi pemulihan password telah dikirim ke ' + val);
+        }
+
+        let uploadedImages = {};
+        function handleImageUpload(e, type) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                uploadedImages[type] = event.target.result;
+                showToast('File gambar berhasil diunggah!');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveSuperadminSettings() {
+            const newTitle = document.getElementById('setting-title').value.trim();
+            const newPhone = document.getElementById('setting-phone').value.trim();
+
+            if (newTitle) {
+                localStorage.setItem('desa_title', newTitle);
+                document.getElementById('brand-title').textContent = newTitle;
+                document.getElementById('meta-page-title').textContent = newTitle + ' - Portal Resmi';
+            }
+
+            if (uploadedImages.logo) {
+                localStorage.setItem('desa_logo', uploadedImages.logo);
+                document.getElementById('navbar-logo').src = uploadedImages.logo;
+            }
+            if (uploadedImages.kades) {
+                localStorage.setItem('desa_kades', uploadedImages.kades);
+                document.getElementById('preview-kades-img').src = uploadedImages.kades;
+            }
+            if (uploadedImages.sekdes) {
+                localStorage.setItem('desa_sekdes', uploadedImages.sekdes);
+                document.getElementById('preview-sekdes-img').src = uploadedImages.sekdes;
+            }
+
+            closeSuperadminModal();
+            showToast('Semua pengaturan Superadmin berhasil disimpan secara permanen!');
+        }
+
+        function loadSavedSettings() {
+            const title = localStorage.getItem('desa_title');
+            if (title) { document.getElementById('brand-title').textContent = title; document.getElementById('setting-title').value = title; }
+
+            const logo = localStorage.getItem('desa_logo');
+            if (logo) document.getElementById('navbar-logo').src = logo;
+            const kades = localStorage.getItem('desa_kades');
+            if (kades) document.getElementById('preview-kades-img').src = kades;
+            const sekdes = localStorage.getItem('desa_sekdes');
+            if (sekdes) document.getElementById('preview-sekdes-img').src = sekdes;
+        }
+
+        function handleSuratSubmit(e) {
+            e.preventDefault();
+            showToast('Permohonan surat berhasil dikirim! Silakan menunggu verifikasi operator.');
+            e.target.reset();
+        }
+
+        function downloadAsZipPackage() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'website-desa-durian-mukut-siap-deploy.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('Paket website siap deploy berhasil diunduh!');
+        }
+
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').textContent = text;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3500);
+        }
+    </script>
+</body>
+</html>
